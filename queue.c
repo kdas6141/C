@@ -51,9 +51,7 @@ bool enQueue( int val, queue *q) {
 	if (q->rear == NULL) {
 		q->front = q->rear = n;
 	} else {
-		node *t = q->rear->next;
 		q->rear->next = n;
-		n->next = t;
 		q->rear = n;
 	}
 	return true;
