@@ -4,6 +4,7 @@ PWD := $(shell pwd)
 LDD := /lib/modules/$(shell uname -r)/kernel/drivers/ldd/
 
 OBJ := hellow
+#OBJ := hellow_pass_params #for hello_pass_params.c
 
 obj-m := $(OBJ).o
 
@@ -23,6 +24,8 @@ compile:
 load: compile
 	echo "Now in load"
 	sudo insmod ./$(OBJ).ko
+# called as follows make params_pass=50000 load 
+#	sudo insmod ./$(OBJ).ko pass_params=$(params_pass)
 
 loadall: compile
 	echo "Now in loadall"
